@@ -8,6 +8,13 @@ import { FlashcardGrid } from "./components/FlashcardGrid";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Plus } from "@/lib/icons";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 export default function FlashcardsPage() {
   const { cards } = useGlobalStore();
@@ -35,6 +42,20 @@ export default function FlashcardsPage() {
   return (
     <div className="bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] min-h-screen">
       <FlashcardHeader />
+      <div className="container mx-auto">
+        <Breadcrumb className="px-4 pt-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/dashboard">Dashboard</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink>Flashcards</BreadcrumbLink>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+
       <FlashcardFilters
         categories={categories}
         selectedCategory={selectedCategory}

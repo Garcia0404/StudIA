@@ -19,7 +19,7 @@ interface DashboardHeaderProps {
 
 export const DashboardHeader: React.FC<DashboardHeaderProps> = ({ user }) => (
   <header className="sticky top-0 z-50 bg-white border-b-4">
-    <div className="container mx-auto px-6 py-4">
+    <div className="container mx-auto px-4 py-4">
       <nav className="flex items-center justify-between">
         <Logo />
         <div className="flex items-center space-x-4">
