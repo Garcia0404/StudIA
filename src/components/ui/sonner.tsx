@@ -40,6 +40,7 @@ export const ButtonSonner = ({
 }) => {
   return (
     <Button
+      size="sm"
       onClick={() => {
         const result = callback();
         if (result) {

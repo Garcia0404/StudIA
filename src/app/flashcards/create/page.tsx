@@ -9,6 +9,13 @@ import { AISuggestions } from "./components/AISuggestions";
 import { CardPreview } from "./components/CardPreview";
 import { Toaster } from "@/components/ui/sonner";
 import { Card, useGlobalStore } from "@/store/globalStore";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 export default function CreateCardPage() {
   const [cardData, setCardData] = useState<Card>({
@@ -127,7 +134,24 @@ export default function CreateCardPage() {
         onSave={handleSave}
       />
       <Toaster />
-      <div className="container mx-auto px-6 py-8">
+      <div className="container mx-auto">
+        <Breadcrumb className="px-4 pt-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/dashboard">Inicio</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/flashcards">Tarjetas</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink>Crear</BreadcrumbLink>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+      <div className="container mx-auto px-4 pt-4 pb-8">
         {!showPreview ? (
           <div className="max-w-4xl mx-auto">
             <div className="mb-8">
