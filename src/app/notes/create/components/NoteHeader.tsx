@@ -23,7 +23,8 @@ export const NoteHeader: React.FC<NoteHeaderProps> = ({
               <FileText className="size-5" />
             </div>
             <span className="text-xl font-bold">
-              Nueva <span className="max-sm:hidden">Nota</span>
+              <span className="max-sm:hidden">Nueva</span>
+              Nota
             </span>
           </div>
         </Link>

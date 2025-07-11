@@ -6,6 +6,7 @@ import { AIPageHeader } from "./components/AIPageHeader";
 import { QuickActions } from "./components/QuickActions";
 import { ChatInterface } from "./components/ChatInterface";
 import { FeaturesInfo } from "./components/FeaturesInfo";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 
 interface Message {
   id: number;
@@ -67,8 +68,21 @@ export default function AIAssistantPage() {
   return (
     <div className="min-h-screen bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px]">
       <AIHeader />
-      
-      <div className="container mx-auto px-6 py-8 max-w-4xl">
+      <div className="container mx-auto">
+        <Breadcrumb className="px-4 pt-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/dashboard">Inicio</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/ai-assistant">Asistente IA</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+      <div className="container mx-auto px-4 pt-4 pb-8 max-w-4xl">
         <AIPageHeader />
         <QuickActions />
         <ChatInterface

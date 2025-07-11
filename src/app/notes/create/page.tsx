@@ -106,6 +106,7 @@ export default function CreateNotePage() {
             <BreadcrumbItem>
               <BreadcrumbLink href="/notes">Notas</BreadcrumbLink>
             </BreadcrumbItem>
+            <BreadcrumbSeparator />
           </BreadcrumbList>
         </Breadcrumb>
       </div>

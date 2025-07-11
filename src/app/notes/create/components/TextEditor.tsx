@@ -101,7 +101,7 @@ Puedes usar:
 - Y mucho más..."
         value={content}
         onChange={(e) => onContentChange(e.target.value)}
-        className="min-h-[400px] rounded-t-none border-t-0 resize-none focus-visible:ring-0 focus-visible:ring-offset-0"
+        className="min-h-64 sm:min-h-[400px] rounded-t-none border-t-0 resize-none focus-visible:ring-0 focus-visible:ring-offset-0"
       />
     </CardContent>
   </Card>

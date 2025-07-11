@@ -53,7 +53,7 @@ export default function DashboardPage() {
     <div className="bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] min-h-screen">
       {/* Header */}
       <DashboardHeader user={user} />
-      <div className="container mx-auto px-6 py-8">
+      <div className="container mx-auto px-4 py-8">
         {/* Welcome Section */}
         <WelcomeSection user={user} />
         {/* Quick Actions */}

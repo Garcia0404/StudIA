@@ -140,9 +140,6 @@ export default function CreateCardPage() {
               <BreadcrumbLink href="/flashcards">Tarjetas</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink>Crear</BreadcrumbLink>
-            </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
       </div>
