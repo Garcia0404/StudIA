@@ -5,10 +5,19 @@ import { ExamHeader } from "./components/ExamHeader";
 import { SetupView } from "./components/SetupView";
 import { ExamView } from "./components/ExamView";
 import { useExamConfig } from "../hooks";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 export default function SimulatorPage() {
   const [showSetup, setShowSetup] = useState(true);
-  const { config, updateConfig, resetConfig } = useExamConfig({ initialDuration: 10 });
+  const { config, updateConfig, resetConfig } = useExamConfig({
+    initialDuration: 10,
+  });
 
   const startSimulator = () => setShowSetup(false);
 
@@ -20,7 +29,20 @@ export default function SimulatorPage() {
   return (
     <div className="bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] min-h-screen">
       <ExamHeader />
-      <div className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
+      <div className="container mx-auto">
+        <Breadcrumb className="px-4 pt-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/dashboard">Inicio</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink>Simulacros</BreadcrumbLink>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+      <div className="container mx-auto px-4 pb-8 pt-4">
         {showSetup ? (
           <SetupView
             simulatorConfig={config}

@@ -40,9 +40,6 @@ export default function CreateCardPage() {
   }>({});
   const { addCard } = useGlobalStore();
 
-  const addIdToCard = () => {
-    setCardData((prev) => ({ ...prev, id: crypto.randomUUID() }));
-  };
   const resetCard = () => {
     setCardData(() => ({
       id: "",
@@ -94,11 +91,9 @@ export default function CreateCardPage() {
     if (!cardData.answer.trim()) newErrors.answer = true;
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) return false;
-    // Creando el id de la tarjeta
-    addIdToCard();
     // Generar opciones automáticamente
     const options = generateOptions(cardData.question, cardData.answer);
-    addCard({ ...cardData, options });
+    addCard({ ...cardData, options, id:crypto.randomUUID() });
     resetCard();
     return true;
     // Mostrar mensaje de éxito
