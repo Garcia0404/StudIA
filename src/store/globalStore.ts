@@ -107,7 +107,11 @@ interface GlobalState {
     questions: Card[];
     timeSpent: number;
   };
-  setCurrentExam: (data: { userAnswers: UserAnswer[]; questions: Card[]; timeSpent: number }) => void;
+  setCurrentExam: (data: {
+    userAnswers: UserAnswer[];
+    questions: Card[];
+    timeSpent: number;
+  }) => void;
   clearCurrentExam: () => void;
 }
 
@@ -119,7 +123,7 @@ export const useGlobalStore = create<GlobalState>()(
 
       cards: [],
       setCards: (cards) => set({ cards }),
-      addCard: (card) => set({ cards: [card, ...get().cards] }),
+      addCard: (card) => set({ cards: [...get().cards, card] }),
       removeCard: (index) =>
         set({ cards: get().cards.filter((_, i) => i !== index) }),
 
@@ -163,7 +167,8 @@ export const useGlobalStore = create<GlobalState>()(
       setWeeklyStatistics: (stats) => set({ weeklyStatistics: stats }),
 
       gettingStartedCompleted: false,
-      setGettingStartedCompleted: (completed) => set({ gettingStartedCompleted: completed }),
+      setGettingStartedCompleted: (completed) =>
+        set({ gettingStartedCompleted: completed }),
 
       simulacrosHistory: [],
       addSimulacroToHistory: (sim) => {
@@ -177,7 +182,8 @@ export const useGlobalStore = create<GlobalState>()(
         timeSpent: 0,
       },
       setCurrentExam: (data) => set({ currentExam: data }),
-      clearCurrentExam: () => set({ currentExam: { userAnswers: [], questions: [], timeSpent: 0 } }),
+      clearCurrentExam: () =>
+        set({ currentExam: { userAnswers: [], questions: [], timeSpent: 0 } }),
     }),
     {
       name: "global-storage",

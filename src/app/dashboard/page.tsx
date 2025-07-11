@@ -50,7 +50,7 @@ export default function DashboardPage() {
   const gettingStartedCompleted = false;
   
   return (
-    <div className="bg-background bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] min-h-screen">
+    <div className="bg-[linear-gradient(to_right,#80808033_1px,transparent_1px),linear-gradient(to_bottom,#80808033_1px,transparent_1px)] bg-[size:70px_70px] min-h-screen">
       {/* Header */}
       <DashboardHeader user={user} />
       <div className="container mx-auto px-6 py-8">
