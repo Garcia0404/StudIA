@@ -65,7 +65,7 @@ export const RecentActivity: React.FC<RecentActivityProps> = ({
             <div className="text-right">
               {activity.score && (
                 <Badge
-                  variant={activity.score >= 80 ? "default" : "secondary"}
+                  variant={activity.score >= 80 ? "default" : "neutral"}
                   className="mb-1"
                 >
                   {activity.score}%

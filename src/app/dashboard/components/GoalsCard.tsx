@@ -32,7 +32,11 @@ export const GoalsCard: React.FC<GoalsCardProps> = ({ goals }) => (
               {goal.current}/{goal.target}
             </span>
           </div>
-          <Progress value={goal.progress} className="h-3" />
+          <Progress
+            aria-label={`Progreso de objectivo ${index}`}
+            value={goal.progress}
+            className="h-3"
+          />
         </div>
       ))}
       <Button className="w-full mt-4">

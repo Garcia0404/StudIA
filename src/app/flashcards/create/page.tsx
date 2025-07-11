@@ -4,7 +4,7 @@ import { useState } from "react";
 import { CreateCardHeader } from "./components/CreateCardHeader";
 import { CreateCardForm } from "./components/CreateCardForm";
 // import { MultimediaSection } from "./components/MultimediaSection";
-import { ConfigurationSection } from "./components/configuration/ConfigurationSection";
+import { ConfigurationSection } from "./components/ConfigurationSection";
 import { AISuggestions } from "./components/AISuggestions";
 import { CardPreview } from "./components/CardPreview";
 import { Toaster } from "@/components/ui/sonner";

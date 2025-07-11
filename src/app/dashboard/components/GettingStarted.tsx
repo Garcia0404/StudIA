@@ -51,7 +51,7 @@ export const GettingStarted = () => {
             </Avatar>
             <span className="text-sm">Establecer tus objetivos de estudio</span>
           </div>
-          <Progress value={progress} className="mt-4" />
+          <Progress aria-label="Progreso de primeros pasos" value={progress} className="mt-4" />
           <p className="text-sm">{progress}% completado</p>
         </CardContent>
       </Card>

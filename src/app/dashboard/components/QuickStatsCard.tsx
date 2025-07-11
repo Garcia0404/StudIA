@@ -20,7 +20,7 @@ export const QuickStatsCard: React.FC = () => (
           <TrendingUp className="w-4 h-4 text-main" />
           <span className="text-sm">Mejora promedio</span>
         </div>
-        <span className="font-medium text-main">+12%</span>
+        <span className="text-main font-bold">+12%</span>
       </div>
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">

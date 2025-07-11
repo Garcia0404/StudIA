@@ -25,11 +25,13 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({ user }) => (
         <div className="flex items-center space-x-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Avatar className="size-8 sm:size-10 border-2">
-                <AvatarFallback className="font-bold">
-                  {user.name.charAt(0) + user.name.charAt(1).toUpperCase()}
-                </AvatarFallback>
-              </Avatar>
+              <button aria-label="Abrir menú">
+                <Avatar className="size-8 sm:size-10 border-2">
+                  <AvatarFallback className="font-bold">
+                    {user.name.charAt(0) + user.name.charAt(1).toUpperCase()}
+                  </AvatarFallback>
+                </Avatar>
+              </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" align="end">
               <DropdownMenuLabel>Mi cuenta</DropdownMenuLabel>
@@ -49,7 +51,10 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({ user }) => (
               <DropdownMenuSeparator />
               <DropdownMenuGroup>
                 <DropdownMenuItem asChild>
-                  <Link href="/flashcards" className="flex gap-2 items-center w-full h-full">
+                  <Link
+                    href="/flashcards"
+                    className="flex gap-2 items-center w-full h-full"
+                  >
                     <BookOpen />
                     <span>Mis tarjetas</span>
                   </Link>

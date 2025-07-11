@@ -25,9 +25,9 @@ export const QuickActionItem: React.FC<QuickActionItemProps> = ({
           {icon}
         </div>
         <div className="flex-1 max-sm:hidden">
-          <h3 className="font-semibold mb-1 text-start whitespace-nowrap">
+          <div className="font-semibold mb-1 text-start whitespace-nowrap">
             {title}
-          </h3>
+          </div>
           <p className="text-xs text-start">{description}</p>
         </div>
       </CardContent>
