@@ -4,6 +4,13 @@ import { useState } from "react";
 import { NoteHeader } from "./components/NoteHeader";
 import { EditorView } from "./components/EditorView";
 import { NotePreview } from "./components/NotePreview";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 interface NoteData {
   title: string;
@@ -25,12 +32,12 @@ export default function CreateNotePage() {
   const [showPreview, setShowPreview] = useState(false);
 
   const handleNoteDataChange = (data: Partial<NoteData>) => {
-    setNoteData(prev => ({ ...prev, ...data }));
+    setNoteData((prev) => ({ ...prev, ...data }));
   };
 
   const handleAddTag = () => {
     if (newTag.trim() && !noteData.tags.includes(newTag.trim())) {
-      setNoteData(prev => ({
+      setNoteData((prev) => ({
         ...prev,
         tags: [...prev.tags, newTag.trim()],
       }));
@@ -39,7 +46,7 @@ export default function CreateNotePage() {
   };
 
   const handleRemoveTag = (tagToRemove: string) => {
-    setNoteData(prev => ({
+    setNoteData((prev) => ({
       ...prev,
       tags: prev.tags.filter((tag) => tag !== tagToRemove),
     }));
@@ -89,8 +96,20 @@ export default function CreateNotePage() {
         onTogglePreview={() => setShowPreview(!showPreview)}
         onSave={handleSave}
       />
-      
-      <div className="container mx-auto px-6 py-8">
+      <div className="container mx-auto">
+        <Breadcrumb className="px-4 pt-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/dashboard">Inicio</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/notes">Notas</BreadcrumbLink>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+      <div className="container mx-auto px-4 pt-4 pb-8">
         {!showPreview ? (
           <EditorView
             noteData={noteData}
