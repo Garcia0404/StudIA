@@ -60,10 +60,10 @@ export const ExamView: React.FC<ExamViewProps> = ({
 
   function handleFinish() {
     // Guardar la respuesta actual antes de finalizar
-    if (currentAnswer && currentQuestion) {
+    if (currentQuestion) {
       const finalAnswer = {
         questionIndex: currentQuestionIndex,
-        userAnswer: currentAnswer,
+        userAnswer: currentAnswer || "",
         correctAnswer: currentQuestion.answer,
         isCorrect: currentAnswer === currentQuestion.answer,
       };
