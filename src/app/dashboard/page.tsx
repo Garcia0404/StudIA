@@ -69,6 +69,7 @@ export default function DashboardPage() {
               <GettingStarted />
             )}
           </div>
+          
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Goals */}

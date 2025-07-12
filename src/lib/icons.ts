@@ -44,11 +44,16 @@ export {
   ArrowLeft,
   Lightbulb,
   ChevronRight,
+  ChevronDown,
+  ChevronUp,
   AlertCircleIcon,
   CheckCircle,
   XCircle,
   MessageSquare,
-  LogOut
+  LogOut,
+  X,
+  Circle,
+  MoreHorizontal
 } from "lucide-react";
 
 // Re-exportar el tipo para componentes que lo necesiten
