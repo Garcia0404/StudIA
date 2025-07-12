@@ -1,6 +1,20 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@keyframes fade-in {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  } to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.animate-fade-in {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: fade-in .3s .3s ease-in-out forwards;
+}
 @custom-variant dark (&:is(.dark *));
 
 :root {

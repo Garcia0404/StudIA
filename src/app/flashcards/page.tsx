@@ -70,7 +70,7 @@ export default function FlashcardsPage() {
           </div>
         </>
       ) : (
-        <div className="container mx-auto px-4 py-10">
+        <div className="container mx-auto px-4 py-10 animate-fade-in">
           <div className="flex flex-col items-center justify-center py-20">
             <p className="text-lg mb-4 text-muted-foreground text-center text-pretty">
               No tienes flashcards en esta categoría.
