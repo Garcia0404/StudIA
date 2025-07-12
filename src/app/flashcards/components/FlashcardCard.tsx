@@ -1,5 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 import { Badge } from "@/components/ui/badge";
 import type { Card as FlashCard } from "@/store/globalStore";
 
@@ -51,7 +57,7 @@ export function FlashcardCard({ card, showAnswer }: FlashcardCardProps) {
       </DrawerTrigger>
       <DrawerContent>
         <div className="mx-auto max-w-xl my-3">
-          <Card className="bg-white">
+          <Card className="bg-white mt-4">
             <CardContent>
               <div className="text-center">
                 <div className="px-3 py-1 rounded-full">
@@ -62,12 +68,16 @@ export function FlashcardCard({ card, showAnswer }: FlashcardCardProps) {
               </div>
               <div className="space-y-3">
                 <div>
-                  <h3 className="text-lg font-semibold mb-3">Pregunta:</h3>
-                  <p className="text-xl leading-relaxed">{card.question}</p>
+                  <DrawerTitle className="text-lg font-semibold mb-2">
+                    Pregunta:
+                  </DrawerTitle>
+                  <DrawerDescription className="text-xl leading-relaxed">
+                    {card.question}
+                  </DrawerDescription>
                 </div>
 
                 <div className="border-t py-6">
-                  <h3 className="text-lg font-semibold mb-3">Respuesta:</h3>
+                  <h3 className="text-lg font-semibold mb-2">Respuesta:</h3>
                   <p className="leading-relaxed font-light">{card.answer}</p>
                 </div>
 

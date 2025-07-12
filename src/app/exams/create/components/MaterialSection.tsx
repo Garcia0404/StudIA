@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -21,11 +20,6 @@ export const MaterialSection = ({
   selectedCategory,
   onSelectCategory,
 }: MaterialSectionProps) => {
-  const [hydrated, setHydrated] = useState(false);
-  useEffect(() => {
-    setHydrated(true);
-  }, []);
-
   const handleToggleCategory = (category: string) => {
     if (selectedCategory === category) {
       onSelectCategory(null); // Deseleccionar si ya está seleccionada
@@ -33,29 +27,6 @@ export const MaterialSection = ({
       onSelectCategory(category); // Seleccionar la nueva categoría
     }
   };
-
-  if (!hydrated) {
-    return (
-      <Card className="bg-white">
-        <CardHeader>
-          <CardTitle className="flex items-center space-x-2">
-            <BookOpen className="h-5 w-5 text-main" />
-            <span>Material disponible</span>
-          </CardTitle>
-          <CardDescription>
-            Tarjetas y contenido para tu simulacro
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex gap-2">
-            <div className="h-10 w-20 bg-main rounded animate-pulse"></div>
-            <div className="h-10 w-24 bg-main rounded animate-pulse"></div>
-            <div className="h-10 w-16 bg-main rounded animate-pulse"></div>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  }
 
   return (
     <Card className="bg-white">

@@ -37,7 +37,7 @@ export default function SimulatorPage() {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink>Simulacros</BreadcrumbLink>
+              <BreadcrumbLink href="/exams/create">Simulacros</BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>

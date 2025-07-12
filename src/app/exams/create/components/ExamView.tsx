@@ -7,6 +7,8 @@ import {
   useExamResults,
   useExamQuestions,
 } from "../../hooks";
+import { useGlobalStore } from "@/store/globalStore";
+import { useRouter } from "next/navigation";
 
 interface ExamViewProps {
   selectedCategory: string | null;
@@ -54,9 +56,44 @@ export const ExamView: React.FC<ExamViewProps> = ({
     mode,
   });
 
+  const router = useRouter();
+
   function handleFinish() {
-    finishExam();
-    saveResults();
+    // Guardar la respuesta actual antes de finalizar
+    if (currentAnswer && currentQuestion) {
+      const finalAnswer = {
+        questionIndex: currentQuestionIndex,
+        userAnswer: currentAnswer,
+        correctAnswer: currentQuestion.answer,
+        isCorrect: currentAnswer === currentQuestion.answer,
+      };
+      
+      // Actualizar userAnswers con la respuesta final
+      const updatedAnswers = userAnswers.filter(a => a.questionIndex !== currentQuestionIndex);
+      const finalAnswers = [...updatedAnswers, finalAnswer];
+      
+      finishExam();
+      // Llamar a saveResults con las respuestas actualizadas
+      // Actualizar el estado directamente
+      const { setCurrentExam, addSimulacroToHistory } = useGlobalStore.getState();
+      const simulacroResults = {
+        userAnswers: finalAnswers,
+        totalQuestions: questions.length,
+        correctAnswers: finalAnswers.filter(a => a.isCorrect).length,
+        timeSpent: getTimeSpent(),
+        category: selectedCategory,
+        mode,
+        date: new Date().toISOString(),
+        questions,
+      };
+      
+      setCurrentExam({ userAnswers: finalAnswers, questions, timeSpent: getTimeSpent() });
+      addSimulacroToHistory(simulacroResults);
+      router.push('/exams/results');
+    } else {
+      finishExam();
+      saveResults();
+    }
   }
 
   if (!hasQuestions) {
@@ -76,7 +113,7 @@ export const ExamView: React.FC<ExamViewProps> = ({
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <div className="max-w-4xl mx-auto">
       <ExamProgress
         currentQuestion={currentQuestionIndex + 1}
         totalQuestions={totalQuestions}

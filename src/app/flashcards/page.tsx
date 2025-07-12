@@ -50,35 +50,39 @@ export default function FlashcardsPage() {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbLink>Tarjetas</BreadcrumbLink>
+              <BreadcrumbLink href="/flashcards">Tarjetas</BreadcrumbLink>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
       </div>
 
-      <FlashcardFilters
-        categories={categories}
-        selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
-        showAnswers={showAnswers}
-        handleShowAnswers={handleShowAnswers}
-      />
-      <div className="container mx-auto px-4 py-10">
-        {filteredCards && filteredCards.length > 0 ? (
-          <FlashcardGrid cards={filteredCards} showAnswers={showAnswers} />
-        ) : (
+      {filteredCards && filteredCards.length > 0 ? (
+        <>
+          <FlashcardFilters
+            categories={categories}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            showAnswers={showAnswers}
+            handleShowAnswers={handleShowAnswers}
+          />
+          <div className="container mx-auto px-4 py-10">
+            <FlashcardGrid cards={filteredCards} showAnswers={showAnswers} />
+          </div>
+        </>
+      ) : (
+        <div className="container mx-auto px-4 py-10">
           <div className="flex flex-col items-center justify-center py-20">
-            <p className="text-lg mb-4 text-muted-foreground">
+            <p className="text-lg mb-4 text-muted-foreground text-center text-pretty">
               No tienes flashcards en esta categoría.
             </p>
             <Button asChild>
               <Link href="/flashcards/create">
-                <Plus className="w-4 h-4 mr-2" /> Crear nueva flashcard
+                <Plus className="w-4 h-4 mr-2" /> Crear nueva tarjeta
               </Link>
             </Button>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
