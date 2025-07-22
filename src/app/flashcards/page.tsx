@@ -66,7 +66,7 @@ export default function FlashcardsPage() {
             handleShowAnswers={handleShowAnswers}
           />
           <div className="container mx-auto px-4 py-10">
-            <FlashcardGrid cards={filteredCards} showAnswers={showAnswers} />
+            <FlashcardGrid cards={filteredCards.slice().reverse()} showAnswers={showAnswers} />
           </div>
         </>
       ) : (
