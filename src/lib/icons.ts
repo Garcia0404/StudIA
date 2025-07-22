@@ -53,7 +53,9 @@ export {
   LogOut,
   X,
   Circle,
-  MoreHorizontal
+  MoreHorizontal,
+  Pencil,
+  Trash
 } from "lucide-react";
 
 // Re-exportar el tipo para componentes que lo necesiten

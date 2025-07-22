@@ -8,6 +8,9 @@ import {
 } from "@/components/ui/drawer";
 import { Badge } from "@/components/ui/badge";
 import type { Card as FlashCard } from "@/store/globalStore";
+import { Button } from "@/components/ui/button";
+import { Trash } from "@/lib/icons";
+import { useGlobalStore } from "@/store/globalStore";
 
 interface FlashcardCardProps {
   card: FlashCard;
@@ -15,6 +18,16 @@ interface FlashcardCardProps {
 }
 
 export function FlashcardCard({ card, showAnswer }: FlashcardCardProps) {
+  const removeCard = useGlobalStore((state) => state.removeCard);
+  const cards = useGlobalStore((state) => state.cards);
+
+  const handleDelete = () => {
+    const index = cards.findIndex((c) => c.id === card.id);
+    if (index !== -1) {
+      removeCard(index);
+    }
+  };
+
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -45,7 +58,7 @@ export function FlashcardCard({ card, showAnswer }: FlashcardCardProps) {
                 </Card>
               )}
               {card.tags.length > 0 && (
-                <div className="flex flex-wrap gap-2 pt-4 border-t">
+                <div className="flex flex-wrap gap-2 pt-1">
                   {card.tags.map((tag, index) => (
                     <Badge key={index}>{tag}</Badge>
                   ))}
@@ -57,7 +70,10 @@ export function FlashcardCard({ card, showAnswer }: FlashcardCardProps) {
       </DrawerTrigger>
       <DrawerContent>
         <div className="mx-auto max-w-xl my-3">
-          <Card className="bg-white mt-4">
+          <Card className="bg-white relative">
+            <Button variant="noShadow" aria-label="Eliminar tarjeta" className="size-7 absolute right-0 mx-6 mt-1 active:scale-90 transition-transform" onClick={handleDelete}>
+              <Trash/>
+            </Button>
             <CardContent>
               <div className="text-center">
                 <div className="px-3 py-1 rounded-full">
@@ -88,7 +104,7 @@ export function FlashcardCard({ card, showAnswer }: FlashcardCardProps) {
                   </Card>
                 )}
                 {card.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-2 pt-4 border-t">
+                  <div className="flex flex-wrap gap-2 pt-1">
                     {card.tags.map((tag, index) => (
                       <Badge key={index}>{tag}</Badge>
                     ))}
